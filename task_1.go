@@ -12,7 +12,11 @@ func main() {
 	signal.Notify(shutdown, os.Interrupt)
 
 	for i := 0; i < 3; i++ {
-		go func() {}()
+		go func() {
+			for {
+				job()
+			}
+		}()
 	}
 
 	fmt.Println("done")
